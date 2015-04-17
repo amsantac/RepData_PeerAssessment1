@@ -75,7 +75,7 @@ The total number of rows with NAs in the dataset is `r totalRowsNoNAs`.
 
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
-```{r}
+```{r fillNAs}
 data1fill <- data1
 nas <- which(is.na(data1$steps))
 for (i in nas){ 
@@ -100,7 +100,7 @@ The mean total number of steps taken per day is `r format(MeanFill)`. The median
 
 1. Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
-```{r}
+```{r dayTypeClass, cache=TRUE}
 data1fill <- mutate(data1fill, dayType="weekday")
 for (i in 1:nrow(data1fill)){
   if(weekdays(data1fill[i, "dates"]) =="Saturday" | weekdays(data1fill[i, "dates"])=="Sunday") 

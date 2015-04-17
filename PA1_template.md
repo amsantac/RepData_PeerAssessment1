@@ -1,10 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
-    title: "Reproducible Research: Peer Assessment 1"
----
+# Reproducible Research: Peer Assessment 1
   
 Reproducible Research: Peer Assessment 1
 ======
@@ -32,12 +26,19 @@ data1$dates <- as.Date(data1$date)
 
 ```r
 suppressMessages(library(dplyr))
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.1.3
+```
+
+```r
 data2 <- group_by(data1, dates)
 data3 <- summarize(data2, stepsByDay=sum(steps))
 hist(data3$stepsByDay, 10, main="Total number of steps taken each day", xlab="Steps by day")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -60,7 +61,7 @@ data5 <- summarize(data4, meanStepsByInt=mean(steps, na.rm=TRUE))
 with(data5, plot(interval, meanStepsByInt, type="l", xlab="Interval", ylab="Mean Number of Steps"))
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -105,7 +106,7 @@ data3fill <- summarize(data2fill, stepsByDay=sum(steps))
 hist(data3fill$stepsByDay, 10, main="Total number of steps taken each day", xlab="Steps by day")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 
 ```r
 MeanFill <- mean(data3fill$stepsByDay, na.rm=TRUE)
@@ -137,6 +138,6 @@ library(lattice)
 xyplot(meanStepsByDayType ~ interval | dayType, data=data5fill, type='l', xlab="Interval", ylab="Mean Number of Steps")
 ```
 
-![plot of chunk panelplot](figure/panelplot-1.png) 
+![](PA1_template_files/figure-html/panelplot-1.png) 
 
 
