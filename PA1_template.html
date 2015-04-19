@@ -225,13 +225,8 @@ hr {
 <li>Histogram of the total number of steps taken each day:</li>
 </ol>
 
-<pre><code class="r">suppressMessages(library(dplyr))
-</code></pre>
-
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.1.3
-</code></pre>
-
-<pre><code class="r">data2 &lt;- group_by(data1, dates)
+<pre><code class="r">library(dplyr)
+data2 &lt;- group_by(data1, dates)
 data3 &lt;- summarize(data2, stepsByDay=sum(steps))
 hist(data3$stepsByDay, 10, main=&quot;Total number of steps taken each day&quot;, xlab=&quot;Steps by day&quot;)
 </code></pre>

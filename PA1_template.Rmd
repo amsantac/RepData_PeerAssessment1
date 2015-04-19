@@ -27,8 +27,8 @@ data1$dates <- as.Date(data1$date)
 
 1. Histogram of the total number of steps taken each day:
 
-```{r}
-suppressMessages(library(dplyr))
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
 data2 <- group_by(data1, dates)
 data3 <- summarize(data2, stepsByDay=sum(steps))
 hist(data3$stepsByDay, 10, main="Total number of steps taken each day", xlab="Steps by day")
