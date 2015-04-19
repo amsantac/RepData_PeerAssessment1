@@ -31,14 +31,7 @@ data1$dates <- as.Date(data1$date)
 
 
 ```r
-suppressMessages(library(dplyr))
-```
-
-```
-## Warning: package 'dplyr' was built under R version 3.1.3
-```
-
-```r
+library(dplyr)
 data2 <- group_by(data1, dates)
 data3 <- summarize(data2, stepsByDay=sum(steps))
 hist(data3$stepsByDay, 10, main="Total number of steps taken each day", xlab="Steps by day")
